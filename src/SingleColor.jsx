@@ -5,9 +5,9 @@ const SingleColor = ({ rgb, index, weight, hexColor }) => {
   const [alert, setAlert] = useState(false)
   const bcg = rgb.join(',')
 
-  //const hex = rgbToHex(...rgb)
+  const hex = rgbToHex(...rgb)
 
-  const hexValue = `#${hexColor}`
+  //const hexValue = `#${hexColor}`
 
   useEffect(() => {
     const timeOut = setTimeout(() => {
@@ -22,10 +22,10 @@ const SingleColor = ({ rgb, index, weight, hexColor }) => {
       style={{ backgroundColor: `rgb(${bcg})` }}
       onClick={() => {
         setAlert(true)
-        navigator.clipboard.writeText(hexValue)
+        navigator.clipboard.writeText(hex)
       }}>
       <p className="percent-value">{weight}%</p>
-      <p className="color-value">{hexValue}</p>
+      <p className="color-value">{hex}</p>
       {alert && <p className="alert">copied to clipboard</p>}
     </article>
   )
